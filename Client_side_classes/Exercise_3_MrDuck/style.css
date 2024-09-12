@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+  position: relative; /* Needed to position the user button */
+}
+
+/* Duck logo styles */
+#duckImage {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: filter 0.3s ease; /* Smooth transition */
+  cursor: pointer;
+}
+
+/* Hover effect to change the duck's color */
+#duckImage:hover {
+  filter: hue-rotate(180deg); /* Changes duck's color on hover */
+}
+
+input {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+}
+
+#problemDisplay {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  display: none; /* Initially hidden */
+}
+
+/* Style for the user button in the header */
+.header-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.header-button:hover {
+  background-color: #0056b3;
+}
+
+/* Form styling */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Invalid input styling */
+.invalid {
+    border: 1px solid red;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 12px;
+}
