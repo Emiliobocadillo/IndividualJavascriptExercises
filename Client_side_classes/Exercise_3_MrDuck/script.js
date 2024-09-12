@@ -2,7 +2,9 @@
 const problemInput = document.getElementById("problemInput");
 const sendProblemButton = document.getElementById("sendProblemButton");
 const problemDisplay = document.getElementById("problemDisplay");
+const jokeDisplay = document.getElementById("jokeDisplay"); // New joke display div
 const duckImage = document.getElementById("duckImage");
+const forceAnswerButton = document.getElementById("forceAnswerButton"); // Force Answer button
 
 // Key for LocalStorage
 const STORAGE_KEY = "mrDuckMessages";
@@ -21,12 +23,12 @@ function formatDate(date) {
   return `${day}/${month}/${year}, ${hours}:${minutes}`;
 }
 
-// Function to display messages in the DOM
+// Function to display user messages in the DOM
 function displayMessages() {
   problemDisplay.innerHTML = ""; // Clear the current messages
   messages.forEach((messageObj) => {
     const messageElement = document.createElement("div");
-    messageElement.textContent = `Mr. Duck is thinking about: ${messageObj.text}`;
+    messageElement.textContent = `User Problem: ${messageObj.text}`;
 
     // Add a title that shows the timestamp when hovered over
     messageElement.setAttribute(
@@ -37,6 +39,23 @@ function displayMessages() {
     problemDisplay.appendChild(messageElement);
   });
   problemDisplay.style.display = "block";
+}
+
+// Function to fetch a joke from JokeAPI
+async function fetchJoke() {
+  try {
+    const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single");
+    const data = await response.json();
+
+    // Display the joke in the jokeDisplay div
+    jokeDisplay.innerHTML = ""; // Clear previous jokes
+    const jokeElement = document.createElement("div");
+    jokeElement.textContent = `Mr. Duck's joke: ${data.joke}`;
+    jokeDisplay.appendChild(jokeElement);
+    jokeDisplay.style.display = "block";
+  } catch (error) {
+    console.error("Error fetching the joke:", error);
+  }
 }
 
 // Display the saved messages when the page loads
@@ -87,6 +106,11 @@ sendProblemButton.addEventListener("click", () => {
     // Clear the input field
     problemInput.value = "";
   }
+});
+
+// Handle the "Force Answer" button click
+forceAnswerButton.addEventListener("click", () => {
+  fetchJoke(); // Fetch and display a joke when the button is clicked
 });
 
 // Easter egg hover effect with a console message

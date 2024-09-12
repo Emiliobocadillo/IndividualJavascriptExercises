@@ -44,17 +44,37 @@ button {
   display: none; /* Initially hidden */
 }
 
-/* Style for the user button in the header */
+#jokeDisplay {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  display: none; /* Initially hidden */
+}
+
 .header-button {
   position: absolute;
   top: 20px;
-  right: 20px;
   padding: 10px 15px;
   background-color: #007BFF;
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+#forceAnswerButton {
+  right: 120px; /* Position the Force Answer button a little to the left */
+}
+
+#userButton {
+  right: 20px; /* Keep the User button at the right edge */
+}
+
+.header-button:hover {
+  background-color: #0056b3;
 }
 
 .header-button:hover {
